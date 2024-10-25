@@ -1,8 +1,8 @@
 /* Variáveis de Tema */
 :root {
-  --primary-color: #f46000;
+  --primary-color: #F58634;
   --primary-button: var(--primary-color);
-  --hover-button: #ff9900;
+  --hover-button: #FFA07A;
   --secondary-color: #f9f9f9;
   --text-color: #333;
   --background1-color: #eee;
