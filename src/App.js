@@ -435,14 +435,14 @@ function App() {
 
           {/* Redes Sociais */}
           <div className="footer-socials">
-            <a href="https://www.facebook.com/Corpusacademias" target="_blank" className="social-button"><FaFacebookSquare /></a>
-            <a href="https://www.instagram.com/corpusacademias/" target="_blank" className="social-button"><FaInstagram /></a>
-            <a href="mailto:contato@corpusacademias.com.br" target="_blank" className="social-button"><CiMail /></a>
+            <a href="https://www.facebook.com/Corpusacademias" target="_blank" rel="noopener noreferrer" className="social-button"><FaFacebookSquare /></a>
+            <a href="https://www.instagram.com/corpusacademias/" target="_blank" rel="noopener noreferrer" className="social-button"><FaInstagram /></a>
+            <a href="mailto:contato@corpusacademias.com.br" target="_blank" rel="noopener noreferrer" className="social-button"><CiMail /></a>
           </div>
 
           {/* Legal Footer */}
           <div class="legal-footer">
-            <p>© 2024 Academia Corpus. Todos os direitos reservados. Desenvolvido por <a href="https://starck.dev.br" target="_blank">starck.dev</a></p>
+            <p>© 2024 Academia Corpus. Todos os direitos reservados. Desenvolvido por <a href="https://starck.dev.br" target="_blank" rel="noopener noreferrer">starck.dev</a></p>
             <button onClick={openModalPoliticaSeguranca} className="termos-button">Políticas de Segurança</button>
             <button onClick={openModalTermosServico} className="termos-button">Termos de Serviço</button>
             <button onClick={openModalConfiguracaoCookies} className="termos-button">Configurações de cookies</button>
