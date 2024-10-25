@@ -6,6 +6,8 @@ import "./App.css";
 import { ImWhatsapp, ImLocation } from "react-icons/im";
 import { GiWeightLiftingUp } from "react-icons/gi";
 import { FaAngleDown } from "react-icons/fa6";
+import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
 
 function App() {
   // Configuração para o slider do hero
@@ -40,6 +42,12 @@ function App() {
   };
 
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalPoliticaSeguranca, setModalPoliticaSeguranca] = useState(false);
+  const [isModalTermosServico, setModalTermosServico] = useState(false);
+  const [isModalConfiguracaoCookies, setModalConfiguracaoCookies] = useState(false);
+  const [isModalAgendeAulaOpen, setModalAgendeAulaOpen] = useState(false);
+
 
   // Função para alternar o estado de exibição da resposta
   const toggleFAQ = (index) => {
@@ -52,16 +60,13 @@ function App() {
 
   const faqData = [
     { question: "Qual é o valor da mensalidade?", answer: "A partir de R$99,90 no Clube de Vantagens. Maiores informações na recepção da unidade." },
-    { question: "Qual o horário de funcionamento das unidades de Capela e Araçoiaba?", answer: "De segunda a sexta-feira, das 6h às 22h, e aos sábados, das 8h às 13h." },
-    { question: "Qual o horário de funcionamento da unidade do Distrito do Porto?", answer: "De segunda a sexta-feira, das 6h às 11h e das 15h às 21h, e aos sábados, das 8h às 12h." },
+    { question: "Quais são os horários de funcionamento das unidades?", answer: "Nas unidades de Capela e Araçoiaba, o funcionamento é de segunda a sexta-feira, das 6h às 22h, e aos sábados, das 8h às 13h. <br/>Na unidade do Distrito do Porto, o horário é de segunda a sexta-feira, das 6h às 11h e das 15h às 21h, e aos sábados, das 8h às 12h." },
     { question: "Vocês aceitam Gympass?", answer: "Não aceitamos Gympass, apenas Totalpass. Maiores informações na recepção da unidade." },
-    { question: "Quais planos estão disponíveis?", answer: "Oferecemos uma variedade de planos, incluindo opções no Clube de Vantagens. Para mais detalhes, consulte a recepção." },
     { question: "Tem aula experimental?", answer: "Sim, oferecemos aulas experimentais! Consulte a recepção para agendar a sua." },
     { question: "Há aulas de funcional ou jump?", answer: "Sim, temos diversas aulas como funcional, jump e muito mais. Consulte nossa grade de horários." },
     { question: "Vocês oferecem planos familiares ou com desconto para casais?", answer: "Sim, temos planos familiares e opções de desconto para quem treina em conjunto. Consulte a recepção para mais detalhes." },
     { question: "Posso transferir meu plano para outra pessoa?", answer: "Sim, permitimos a transferência de planos. Consulte as condições na recepção." },
     { question: "Quem já foi aluno precisa pagar a taxa de matrícula novamente?", answer: "Depende do tempo de inatividade. Verifique as condições na recepção." },
-    { question: "Qual é a forma de pagamento dos planos?", answer: "Os planos podem ser pagos no cartão de crédito. Consulte a recepção para outras opções." },
     { question: "Há desconto para mais de uma pessoa treinando junta?", answer: "Sim, oferecemos descontos para grupos e famílias. Consulte as condições na recepção." },
     { question: "Quero marcar uma avaliação, como faço?", answer: "É fácil! Basta entrar em contato com a recepção ou agendar pelo aplicativo." },
     { question: "Qual é o benefício do Clube +?", answer: "Com o Clube +, você tem acesso a vantagens exclusivas como descontos em produtos e serviços. Consulte a recepção para mais detalhes." }
@@ -123,8 +128,28 @@ function App() {
     }
   };
 
+  const openModalPoliticaSeguranca = () => setModalPoliticaSeguranca(true);
+  const closeModalPoliticaSeguranca = () => setModalPoliticaSeguranca(false);
+  const openModalTermosServico = () => setModalTermosServico(true);
+  const closeModalTermosServico = () => setModalTermosServico(false);
+  const openModalConfiguracaoCookies = () => setModalConfiguracaoCookies(true);
+  const closeModalConfiguracaoCookies = () => setModalConfiguracaoCookies(false);
+  const openModalAgendeAulaOpen = () => setModalAgendeAulaOpen(true);
+  const closeModalAgendeAulaOpen = () => setModalAgendeAulaOpen(false);
+
   return (
     <div className="App">
+      {/* Menu Superior */}
+      <nav className="menu">
+        <ul>
+          <li><a href="#nossas-unidades">Nossas Unidades</a></li>
+          <li><a href="#aulas-e-treinos">Aulas e Treinos</a></li>
+          <li><a href="#aplicativo">Aplicativo</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><button onClick={() => setModalOpen(true)}>Contato</button></li>
+        </ul>
+      </nav>
+
       {/* Hero Section - Carrossel de Imagens */}
       <Slider {...heroSettings}>
         <div>
@@ -157,8 +182,7 @@ function App() {
             src="img/faixa-agende-sua-aula.png"
             alt="Faixa com a imagem 'Agende sua aula grátis'"
           />
-          <p>Garanta sua aula experimental grátis!</p>
-          <button id="openModalBtn">Agende Agora</button>
+          <button onClick={openModalAgendeAulaOpen}>Agende Agora</button>
         </div>
       </section>
 
@@ -176,7 +200,7 @@ function App() {
                 <h3><GiWeightLiftingUp /> Araçoiaba da Serra <GiWeightLiftingUp /></h3>
                 <p><ImLocation /> Av. Ângelo Pupin, 158 <br /> Jardim Primavera</p>
                 <a
-                  href="https://wa.me/551597580128"
+                  href="https://wa.me/5515997580128"
                   className="cta-button"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -355,9 +379,16 @@ function App() {
                 <h4 className="faq-question">
                   {faq.question}
                 </h4>
-                <span className={`faq-icon ${activeIndex === index ? 'rotate' : ''}`}><FaAngleDown /></span>
+                <span className={`faq-icon ${activeIndex === index ? 'rotate' : ''}`}>
+                  <FaAngleDown />
+                </span>
               </div>
-              {activeIndex === index && <p className="faq-answer">{faq.answer}</p>}
+              {activeIndex === index && (
+                <p
+                  className="faq-answer"
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
+                />
+              )}
               <hr className="faq-divider" /> {/* Linha divisória */}
             </div>
           ))}
@@ -367,31 +398,203 @@ function App() {
       {/* Footer */}
       <footer>
         <div className="footer">
-          <p>© 2024 Academia Corpus. Todos os direitos reservados.</p>
+          <img src="img/corpusorange.png" alt="Jump" className="logo-image" />
+          <div className="footer-columns">
+
+            <div className="footer-menu">
+              <ul>
+                <li><a href="slider">Início</a></li>
+                <li><a href="#nossas-unidades">Unidades</a></li>
+                <li><a href="#aulas-e-treinos">Aulas e Treinos</a></li>
+                <li><a href="#aplicativo">Aplicativo</a></li>
+                <li><a href="#faq">FAQ</a></li>
+              </ul>
+            </div>
+
+            <div className="footer-location">
+              <div className="location">
+                <strong>Araçoiaba da Serra</strong>
+                <p>Av. Ângelo Pupin, 158</p>
+                <p>Seg a Sex: 6h às 22h<br />Sáb: 8h às 13h</p>
+                <a href="https://wa.me/5515997580128" className="cta-button" target="_blank" rel="noopener noreferrer"><ImWhatsapp /> (15) 9.9758-0128</a>
+              </div>
+              <div className="location">
+                <strong>Capela do Alto</strong>
+                <p>R. João Felipe, 125</p>
+                <p>Seg a Sex: 6h às 22h<br />Sáb: 8h às 13h</p>
+                <a href="https://wa.me/5515999196909" className="cta-button" target="_blank" rel="noopener noreferrer"><ImWhatsapp /> (15) 9.9196-9092</a>
+              </div>
+              <div className="location">
+                <strong>Distrito do Porto</strong>
+                <p>Av. Bom Jesus, 41</p>
+                <p>Seg a Sex: 6h às 11h e 15h às 21h<br />Sáb: 8h às 12h</p>
+                <a href="https://wa.me/5515998886915" className="cta-button" target="_blank" rel="noopener noreferrer"><ImWhatsapp /> (15) 9.9888-6915</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Redes Sociais */}
+          <div className="footer-socials">
+            <a href="https://www.facebook.com/Corpusacademias" target="_blank" className="social-button"><FaFacebookSquare /></a>
+            <a href="https://www.instagram.com/corpusacademias/" target="_blank" className="social-button"><FaInstagram /></a>
+            <a href="mailto:contato@corpusacademias.com.br" target="_blank" className="social-button"><CiMail /></a>
+          </div>
+
+          {/* Legal Footer */}
+          <div class="legal-footer">
+            <p>© 2024 Academia Corpus. Todos os direitos reservados. Desenvolvido por <a href="https://starck.dev.br" target="_blank">starck.dev</a></p>
+            <button onClick={openModalPoliticaSeguranca} className="termos-button">Políticas de Segurança</button>
+            <button onClick={openModalTermosServico} className="termos-button">Termos de Serviço</button>
+            <button onClick={openModalConfiguracaoCookies} className="termos-button">Configurações de cookies</button>
+          </div>
         </div>
       </footer>
 
+      {/* Modal de Contato */}
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={() => setModalOpen(false)}>
+          <div className="modal-content-contato" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={() => setModalOpen(false)}>&times;</button>
+            <h2>Contato</h2>
+            <hr className="faq-divider" /> {/* Linha divisória */}
 
-{/* Modais */}
-      <div id="myModal" className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h2>Escolha uma Unidade</h2>
-            <span className="close">&times;</span>
-          </div>
-          <div className="modal-buttons">
-            <a href="https://wa.me/5515997580128" className="modal-btn" target="_blank" rel="noopener noreferrer">
-              <ImWhatsapp /> Araçoiaba da Serra
-            </a>
-            <a href="https://wa.me/5515991969092" className="modal-btn" target="_blank" rel="noopener noreferrer">
-              <ImWhatsapp /> Capela do Alto
-            </a>
-            <a href="https://wa.me/5515998886915" className="modal-btn" target="_blank" rel="noopener noreferrer">
-              <ImWhatsapp /> Distrito do Porto
-            </a>
+            <div className="contact-locations">
+              <div className="contact-location">
+                <strong>Araçoiaba da Serra</strong>
+                <p>Seg a Sex: 6h às 22h<br />Sáb: 8h às 13h</p>
+                <a
+                  href="https://wa.me/5515997580128"
+                  className="cta-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ImWhatsapp /> (15) 9.9758-0128
+                </a>
+              </div>
+              <div className="contact-location">
+                <strong>Capela do Alto</strong>
+                <p>Seg a Sex: 6h às 22h<br />Sáb: 8h às 13h</p>
+                <a
+                  href="https://wa.me/5515999196909"
+                  className="cta-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ImWhatsapp /> (15) 9.9196-9092
+                </a>
+              </div>
+              <div className="contact-location">
+                <strong>Distrito do Porto</strong>
+                <p>Seg a Sex: 6h às 11h e 15h às 21h<br />Sáb: 8h às 12h</p>
+                <a
+                  href="https://wa.me/5515998886915"
+                  className="cta-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ImWhatsapp /> (15) 9.9888-6915
+                </a>
+              </div>
+            </div>
+            <p><strong>Email:</strong> contato@academiacorpus.com</p>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* Modal Agende uma Aula */}
+      {isModalAgendeAulaOpen && (
+        <div className="modal-overlay" onClick={closeModalAgendeAulaOpen}>
+          <div className="modal-content-schedule" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header-schedule">
+              <h2>Escolha uma Unidade</h2>
+              <span className="modal-close-button" onClick={closeModalAgendeAulaOpen}>&times;</span>
+            </div>
+            <div className="modal-buttons-schedule">
+              <a
+                href="https://wa.me/5515997580128"
+                className="schedule-modal-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImWhatsapp /> Araçoiaba da Serra
+              </a>
+              <a
+                href="https://wa.me/5515999196909"
+                className="schedule-modal-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImWhatsapp /> Capela do Alto
+              </a>
+              <a
+                href="https://wa.me/5515998886915"
+                className="schedule-modal-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImWhatsapp /> Distrito do Porto
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal para Políticas de Segurança */}
+      {isModalPoliticaSeguranca && (
+        <div className="modal-overlay" onClick={closeModalPoliticaSeguranca}>
+          <div className="modal-content-termos" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={closeModalPoliticaSeguranca}>&times;</button>
+
+            <h2>Políticas de Segurança</h2>
+            <p>
+              Sua segurança é nossa prioridade. Utilizamos SSL e HTTPS para proteger
+              as informações transmitidas entre seu navegador e nosso site. Isso garante
+              que os dados sejam criptografados e permaneçam seguros durante a comunicação.
+            </p>
+            <p>
+              Este site não coleta nem armazena nenhum tipo de dados pessoais. Todos os
+              botões disponíveis redirecionam os usuários para o WhatsApp, Instagram e
+              Facebook, ou para o e-mail da empresa, sem armazenar informações adicionais.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Modal para Termos de Serviço */}
+      {isModalTermosServico && (
+        <div className="modal-overlay" onClick={closeModalTermosServico}>
+          <div className="modal-content-termos" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={closeModalTermosServico}>&times;</button>
+
+            <h2>Termos de Serviço</h2>
+            <p>
+              Os serviços oferecidos por nossa empresa são realizados em local físico,
+              com um contrato de prestação de serviço que garante qualidade e segurança para você.
+              Este site é apenas uma landing page e não realiza qualquer tipo de serviço ou coleta de dados.
+            </p>
+            <p>
+              Ao navegar em nossa página, você é redirecionado para canais oficiais como
+              WhatsApp, redes sociais e e-mail, onde poderá contatar a equipe diretamente para informações.
+              Não nos responsabilizamos por qualquer conteúdo fora dos nossos links oficiais.
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Configurações de Cookies */}
+      {isModalConfiguracaoCookies && (
+        <div className="modal-overlay" onClick={closeModalConfiguracaoCookies}>
+          <div className="modal-content-termos" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={closeModalConfiguracaoCookies}>&times;</button>
+
+            <h2>Configurações de Cookies</h2>
+            <p>Atualmente, não utilizamos cookies em nosso site. Nenhum dado de navegação é coletado ou armazenado.</p>
+
+            <p>Para mais informações sobre como gerenciamos dados, consulte nossa <a href="#politica-seguranca" onClick={openModalPoliticaSeguranca}>Política de Segurança</a>.</p>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

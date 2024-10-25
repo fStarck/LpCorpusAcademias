@@ -1,71 +1,57 @@
 /* Variáveis de Tema */
 :root {
   --primary-color: #f46000;
-  /* Laranja do logotipo */
+  --primary-button: var(--primary-color);
+  --hover-button: #ff9900;
   --secondary-color: #f9f9f9;
-  /* Cinza claro da identidade */
   --text-color: #333;
-  /* Cor do texto principal */
   --background1-color: #eee;
   --background2-color: #fff;
-  /* Fundo sutil e neutro */
   --accent-color: #0056b3;
-  /* Azul escuro para contraste */
   --highlight-color: #ffcc00;
-  /* Amarelo claro como cor de destaque */
   --font-family-heading: 'Arial', sans-serif;
-  /* Fonte para títulos */
   --font-family-body: 'Roboto', sans-serif;
-  /* Fonte para o corpo do texto */
   --padding-section: 30px;
-  /* Espaçamento padrão das seções */
   --max-width: 1200px;
-  /* Largura máxima do conteúdo */
+  --whatsapp-color: #25D366;
+  --whatsapp-hover: #1A8D5F;
 }
 
 /* Reset básico de CSS */
-
-/* Remove margens, paddings, e define box-sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Melhora a tipografia legível e acessível */
 html {
   font-size: 100%;
   line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-/* Remover estilos padrão de listas */
 ul,
 ol {
   list-style: none;
 }
 
-/* Remove sublinhados em links e define uma cor padrão */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Remove bordas padrões de botões */
 button {
   border: none;
   background: none;
   cursor: pointer;
 }
 
-/* Força imagens a se ajustarem ao container */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Define um estilo básico para campos de formulário */
 input,
 textarea,
 select,
@@ -73,30 +59,16 @@ button {
   font: inherit;
 }
 
-/* Remove espaçamento entre tabelas */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* Garantir que o body ocupe a tela toda */
 body,
 html {
   height: 100%;
 }
 
-
-
-
-/*  * {
-  border: solid 1px greenyellow;
-}  */
-
-
-
-
-
-/* Estilos Gerais */
 body {
   margin: 0;
   font-family: var(--font-family-body);
@@ -111,19 +83,15 @@ body {
   text-align: center;
 }
 
-/* Centraliza o conteúdo e define a largura máxima */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 20px;
-  /* Garantir espaçamento lateral em telas menores */
 }
 
-/* Seções Gerais */
 section {
   padding: var(--padding-section) 0;
   width: 100%;
-  /* Seções ocupam toda a largura da tela */
 }
 
 h2 {
@@ -140,7 +108,7 @@ p {
 
 button {
   padding: 10px 20px;
-  background-color: var(--accent-color);
+  background-color: var(--primary-button);
   color: white;
   border: none;
   border-radius: 5px;
@@ -149,25 +117,64 @@ button {
 }
 
 button:hover {
-  background-color: var(--primary-color);
+  background-color: var(--hover-button);
+}
+
+/* Menu Superior */
+.menu {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.menu ul {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: var(--primary-color);
+}
+
+.menu button {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+  background-color: var(--primary-button);
+
+}
+
+.menu button:hover {
+  background-color: var(--hover-button);
 }
 
 /* Hero Section - Carrossel de Imagens */
-
 .carousel-image {
   width: 100%;
-  /* Use 100% para ocupar toda a largura do contêiner */
   height: auto;
-  /* Deixe a altura se ajustar automaticamente */
   object-fit: cover;
-  /* Mantém a proporção sem distorcer */
   display: block;
   margin: 0;
 }
 
 .carousel {
   max-width: var(--max-width);
-  /* O conteúdo é limitado */
   margin: 0 auto;
 }
 
@@ -183,13 +190,12 @@ button:hover {
   align-items: center;
 }
 
-/* Define o botão */
 #banner-aula-gratis button {
   margin-top: 30px;
   padding: 15px 30px;
   font-size: 1.2rem;
-  background-color: var(--primary-color);
-  color:var(--secondary-color);;
+  background-color: var(--primary-button);
+  color: var(--secondary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -197,21 +203,15 @@ button:hover {
 }
 
 #banner-aula-gratis button:hover {
-  background-color: var(--highlight-color);
+  background-color: var(--hover-button);
 }
 
-/* Ajuste da imagem */
 #banner-aula-gratis img {
   width: auto;
-  /* Mantém a largura original */
   height: auto;
-  /* Mantém a altura original */
   max-width: 100%;
-  /* Impede que a imagem ultrapasse o container */
   display: block;
-  /* Remove espaço extra em torno da imagem */
   border-radius: 1.3rem;
-  /* Ajuste o valor para o arredondamento desejado */
 }
 
 /* Estilos para o modal */
@@ -232,9 +232,7 @@ button:hover {
   padding: 20px;
   border: 1px solid #888;
   width: 25vw;
-  /* Largura do modal */
   justify-items: center;
-  /* Centraliza o conteúdo no modal */
   position: relative;
 }
 
@@ -256,25 +254,19 @@ button:hover {
 
 .modal-btn {
   display: block;
-  /* Faz com que os links fiquem um abaixo do outro */
   width: 70%;
-  background-color: #4CAF50;
-  /* Cor de fundo dos botões */
+  background-color: var(--whatsapp-color);
   color: white;
-  /* Cor do texto dos botões */
   padding: 10px 20px;
   margin: 10px 0;
-  /* Espaço entre os botões */
   text-align: center;
   text-decoration: none;
-  /* Remove o sublinhado do link */
   font-size: 16px;
   border-radius: 5px;
 }
 
 .modal-btn:hover {
-  background-color: #45a049;
-  /* Efeito de hover nos botões */
+  background-color: var(--whatsapp-hover);
 }
 
 .modal-buttons {
@@ -285,16 +277,15 @@ button:hover {
 
 .modal-buttons button {
   width: 80%;
-  background-color: var(--highlight-color);
+  background-color: var(--primary-button);
   color: var(--primary-color);
   border: none;
   cursor: pointer;
 }
 
 .modal-buttons button:hover {
-  background-color: var(--highlight-hover-color);
+  background-color: var(--hover-button);
 }
-
 
 #nossas-unidades {
   background-color: var(--background2-color);
@@ -318,7 +309,7 @@ button:hover {
   max-width: 350px;
   margin: 16px;
   position: relative;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 }
 
@@ -334,7 +325,7 @@ button:hover {
 }
 
 .cta-button {
-  background-color: #4CAF50;
+  background-color: var(--whatsapp-color);
   color: white;
   border: none;
   border-radius: 4px;
@@ -342,10 +333,11 @@ button:hover {
   cursor: pointer;
   transition: background-color 0.3s;
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .cta-button:hover {
-  background-color: #45a049;
+  background-color: var(--whatsapp-hover);
 }
 
 .card-content {
@@ -369,7 +361,6 @@ button:hover {
   transform: scale(1.1);
 }
 
-
 .app-image {
   height: 280px;
 }
@@ -391,27 +382,24 @@ button:hover {
 }
 
 .aulas-treinos-slider {
-  position: relative; /* Faz com que os elementos filhos sejam posicionados em relação a este container */
+  position: relative;
 }
-
-
 
 .slick-prev,
 .slick-next {
   position: absolute;
-  top: 50%; /* Centraliza verticalmente */
+  top: 50%;
   transform: translateY(-50%);
-  z-index: 10; /* Coloca os botões acima da imagem */
+  z-index: 10;
 }
 
 .slick-prev {
-  left: 10px; /* Ajuste a posição esquerda conforme necessário */
+  left: 10px;
 }
 
 .slick-next {
-  right: 10px; /* Ajuste a posição direita conforme necessário */
+  right: 10px;
 }
-
 
 /* Aplicativo */
 #aplicativo {
@@ -496,8 +484,8 @@ button:hover {
   margin-top: 30px;
   padding: 15px 30px;
   font-size: 1.2rem;
-  background-color: var(--primary-color);
-  color:var(--secondary-color);;
+  background-color: var(--primary-button);
+  color: var(--secondary-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -505,35 +493,7 @@ button:hover {
 }
 
 #aplicativo button:hover {
-  background-color: var(--highlight-color);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  #aplicativo .app-content {
-    flex-direction: column;
-  }
-
-  #aplicativo .app-image {
-    margin-top: 20px;
-  }
-
-  #aplicativo .app-text {
-    text-align: center;
-  }
-}
-
-
-
-/* Instalações */
-#instalacoes {
-  background-color: white;
-}
-
-#instalacoes .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  background-color: var(--hover-button);
 }
 
 /* FAQ */
@@ -541,17 +501,17 @@ button:hover {
   background-color: var(--background-color);
   padding: 40px 20px;
   display: flex;
-  justify-content: center; /* Centraliza o conteúdo */
+  justify-content: center;
 }
 
 .faq {
-  max-width: 1200px; /* Largura máxima de 1200px */
-  width: 100%; /* Permite que o contêiner use 100% da largura disponível até o máximo */
+  max-width: 1200px;
+  width: 100%;
 }
 
 .faq-item {
   margin-bottom: 20px;
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align: left;
 }
 
 .faq-question-container {
@@ -564,7 +524,7 @@ button:hover {
 .faq-question {
   font-weight: bold;
   font-size: 1.5rem;
-  color: #333; /* Cor cinza escuro */
+  color: #333;
   margin: 0;
 }
 
@@ -574,7 +534,7 @@ button:hover {
 }
 
 .faq-question:hover {
-  color: #007bff; /* Cor ao passar o mouse */
+  color: var(--hover-button);
 }
 
 .faq-icon {
@@ -583,66 +543,267 @@ button:hover {
 }
 
 .rotate {
-  transform: rotate(180deg); /* Gira a seta quando a pergunta é aberta */
+  transform: rotate(180deg);
 }
 
 /* Estilos para a linha divisória */
 .faq-divider {
-  border: none; /* Remove a borda padrão */
-  height: 1px; /* Altura da linha divisória */
-  background-color: #e0e0e0; /* Cor da linha divisória */
-  margin: 10px 0; /* Espaçamento acima e abaixo da linha */
+  border: none;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 10px 0;
 }
 
-
-
-
-/* Faça Parte do Time */
-#faca-parte-do-time {
-  background-color: var(--primary-color);
-  color: white;
+/*MODAL*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
 }
 
-#faca-parte-do-time .container {
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
-#faca-parte-do-time button {
-  background-color: var(--highlight-color);
-  color: var(--primary-color);
+.close-modal {
+  background-color: transparent;
+  color: #ff0000;
+  font-size: 1.7rem;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-/* Footer */
+.close-modal:hover {
+  background-color: transparent;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-content li {
+  margin: 0.5rem 0;
+}
+
 footer {
   background-color: var(--text-color);
+  width: 100%;
+  padding: 2rem 0 .5rem 0;
+}
+
+.footer {
   color: white;
-  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-location {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.logo-image {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.location {
   text-align: center;
 }
 
-footer p {
+.location strong {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.footer-menu {
+  width: 15vw;
+
+}
+
+.footer-menu ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 0;
+  list-style: disc;
+}
+
+.footer-menu li {
+  margin: 0 15px;
+}
+
+.footer-menu a {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.footer-menu a:hover {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+
+}
+
+.footer-socials {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.legal-footer {
+  display: flex;
+  gap: 2rem;
+}
+
+.legal-footer p {
+  margin: 0 !important;
+}
+
+.legal-footer button {
+  background: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+  line-height: 1;
+  padding: 0;
   margin: 0;
+  height: auto;
 }
 
-@media (max-width: 768px) {
-  h2 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  section {
-    padding: 40px 20px;
-  }
-
-  button {
-    font-size: 0.9rem;
-  }
+.legal-footer button:hover {
+  background: none;
+  color: #0056b3;
 }
 
+.social-button {
+  margin: 0 2rem;
+  font-size: 2rem;
+}
 
+.footer p {
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+}
 
+.footer p a {
+  margin-bottom: 0.7rem;
+  font-size: 1rem;
+}
 
+.modal-content-termos {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 2rem 5rem;
+  border: 1px solid #888;
+  width: 60vw;
+  justify-items: center;
+  position: relative;
+  text-align: justify;
+}
 
+.modal-content-contato {
+  position: relative;
+  background-color: #fefefe;
+  padding: 2rem 4rem;
+  border: 1px solid #888;
+  width: 65vw;
+}
+
+.contact-location {
+  width: 320px;
+}
+
+.contact-locations {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.contact-locations strong {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.modal-content-schedule {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 30vw;
+}
+
+.modal-header-schedule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modal-close-button {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.modal-header-schedule h2 {
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.modal-buttons-schedule {
+  margin-top: 10px;
+}
+
+.schedule-modal-btn {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: var(--whatsapp-color);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.schedule-modal-btn:hover {
+  background-color: var(--whatsapp-hover);
+}
