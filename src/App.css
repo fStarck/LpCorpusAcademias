@@ -6,28 +6,92 @@
   /* Cinza claro da identidade */
   --text-color: #333;
   /* Cor do texto principal */
-  --background-color: #f5f5f5;
+  --background1-color: #eee;
+  --background2-color: #fff;
   /* Fundo sutil e neutro */
   --accent-color: #0056b3;
   /* Azul escuro para contraste */
   --highlight-color: #ffcc00;
   /* Amarelo claro como cor de destaque */
-
   --font-family-heading: 'Arial', sans-serif;
   /* Fonte para títulos */
   --font-family-body: 'Roboto', sans-serif;
   /* Fonte para o corpo do texto */
-
-  --padding-section: 60px;
+  --padding-section: 30px;
   /* Espaçamento padrão das seções */
   --max-width: 1200px;
   /* Largura máxima do conteúdo */
 }
 
+/* Reset básico de CSS */
 
-/* * {
+/* Remove margens, paddings, e define box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Melhora a tipografia legível e acessível */
+html {
+  font-size: 100%;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Remover estilos padrão de listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove sublinhados em links e define uma cor padrão */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove bordas padrões de botões */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Força imagens a se ajustarem ao container */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Define um estilo básico para campos de formulário */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+/* Remove espaçamento entre tabelas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Garantir que o body ocupe a tela toda */
+body,
+html {
+  height: 100%;
+}
+
+
+
+
+/*  * {
   border: solid 1px greenyellow;
-} */
+}  */
+
 
 
 
@@ -37,10 +101,9 @@ body {
   margin: 0;
   font-family: var(--font-family-body);
   color: var(--text-color);
-  background-color: var(--background-color);
   line-height: 1.6;
   padding: 0;
-  /* Remove padding padrão do body */
+  background-color: var(--background1-color);
 
 }
 
@@ -110,7 +173,7 @@ button:hover {
 
 /* Banner Aula Grátis */
 #banner-aula-gratis {
-  background-color: var(--primary-color);
+  background-color: var(--background1-color);
   color: white;
 }
 
@@ -122,8 +185,19 @@ button:hover {
 
 /* Define o botão */
 #banner-aula-gratis button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  color:var(--secondary-color);;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#banner-aula-gratis button:hover {
   background-color: var(--highlight-color);
-  color: var(--primary-color);
 }
 
 /* Ajuste da imagem */
@@ -180,7 +254,6 @@ button:hover {
   font-weight: bold;
 }
 
-/* Estilos para os botões */
 .modal-btn {
   display: block;
   /* Faz com que os links fiquem um abaixo do outro */
@@ -204,7 +277,6 @@ button:hover {
   /* Efeito de hover nos botões */
 }
 
-/* Centralizando os botões no modal */
 .modal-buttons {
   display: flex;
   flex-direction: column;
@@ -224,16 +296,8 @@ button:hover {
 }
 
 
-
-
-
-
-
-
-
-
 #nossas-unidades {
-  background-color: #f9f9f9;
+  background-color: var(--background2-color);
 }
 
 .card-container {
@@ -247,19 +311,26 @@ button:hover {
 
 .card {
   border: 1px solid #ccc;
+  background-color: white;
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
   max-width: 350px;
   margin: 16px;
   position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card-image {
   width: 100%;
   height: auto;
   transition: transform 0.3s ease;
-   overflow: hidden; /* Adicione isso para esconder a parte da imagem que crescer */
+  overflow: hidden;
 }
 
 .cta-button {
@@ -270,7 +341,7 @@ button:hover {
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .cta-button:hover {
@@ -299,17 +370,18 @@ button:hover {
 }
 
 
+.app-image {
+  height: 280px;
+}
 
-
-
-
-
-
-
+.app-content {
+  display: flex;
+}
 
 /* Aulas e Treinos */
 #aulas-e-treinos {
-  background-color: var(--background-color);
+  padding: 40px 20px;
+  background-color: var(--background1-color);
 }
 
 #aulas-e-treinos .container {
@@ -318,9 +390,34 @@ button:hover {
   justify-content: space-around;
 }
 
+.aulas-treinos-slider {
+  position: relative; /* Faz com que os elementos filhos sejam posicionados em relação a este container */
+}
+
+
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%);
+  z-index: 10; /* Coloca os botões acima da imagem */
+}
+
+.slick-prev {
+  left: 10px; /* Ajuste a posição esquerda conforme necessário */
+}
+
+.slick-next {
+  right: 10px; /* Ajuste a posição direita conforme necessário */
+}
+
+
 /* Aplicativo */
 #aplicativo {
-  background-color: var(--secondary-color);
+  background-color: var(--background2-color);
+  padding: 40px 20px;
+  text-align: center;
 }
 
 #aplicativo .container {
@@ -329,10 +426,104 @@ button:hover {
   align-items: center;
 }
 
-#aplicativo button {
-  background-color: var(--primary-color);
-  color: white;
+#aplicativo .app-info {
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+#aplicativo .app-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#aplicativo .app-description {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+#aplicativo .app-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#aplicativo .app-text {
+  max-width: 600px;
+  text-align: left;
+  background-color: white;
+}
+
+#aplicativo .app-subtitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#aplicativo .app-details {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#aplicativo .app-features {
+  list-style-type: disc;
+  padding: 0 2rem;
+  margin-bottom: 20px;
+}
+
+#aplicativo .app-features li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+#aplicativo .app-call-to-action {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+}
+
+#aplicativo .app-image {
+  max-width: 20vw;
+  height: auto;
+  border-radius: 10px;
+}
+
+#aplicativo button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: var(--primary-color);
+  color:var(--secondary-color);;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#aplicativo button:hover {
+  background-color: var(--highlight-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #aplicativo .app-content {
+    flex-direction: column;
+  }
+
+  #aplicativo .app-image {
+    margin-top: 20px;
+  }
+
+  #aplicativo .app-text {
+    text-align: center;
+  }
+}
+
+
 
 /* Instalações */
 #instalacoes {
@@ -348,20 +539,63 @@ button:hover {
 /* FAQ */
 #faq {
   background-color: var(--background-color);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo */
 }
 
-#faq .container {
-  text-align: left;
+.faq {
+  max-width: 1200px; /* Largura máxima de 1200px */
+  width: 100%; /* Permite que o contêiner use 100% da largura disponível até o máximo */
 }
 
-#faq .faq-item h4 {
-  color: var(--primary-color);
+.faq-item {
+  margin-bottom: 20px;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.faq-question-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question {
+  font-weight: bold;
   font-size: 1.5rem;
+  color: #333; /* Cor cinza escuro */
+  margin: 0;
 }
 
-#faq .faq-item p {
+.faq-answer {
+  margin-top: 10px;
   font-size: 1.1rem;
 }
+
+.faq-question:hover {
+  color: #007bff; /* Cor ao passar o mouse */
+}
+
+.faq-icon {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(180deg); /* Gira a seta quando a pergunta é aberta */
+}
+
+/* Estilos para a linha divisória */
+.faq-divider {
+  border: none; /* Remove a borda padrão */
+  height: 1px; /* Altura da linha divisória */
+  background-color: #e0e0e0; /* Cor da linha divisória */
+  margin: 10px 0; /* Espaçamento acima e abaixo da linha */
+}
+
+
+
 
 /* Faça Parte do Time */
 #faca-parte-do-time {
@@ -407,3 +641,8 @@ footer p {
     font-size: 0.9rem;
   }
 }
+
+
+
+
+
