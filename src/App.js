@@ -72,6 +72,29 @@ function App() {
     { question: "Qual é o benefício do Clube +?", answer: "Com o Clube +, você tem acesso a vantagens exclusivas como descontos em produtos e serviços. Consulte a recepção para mais detalhes." }
   ];
 
+  const calendarAracoiaba = {
+    headers: ["Horários", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
+    rows: [
+      { time: "7h00", days: ["", "", "", "", ""] },
+      { time: "8h00", days: ["", "", "", "", ""] },
+      { time: "19h00", days: ["", "", "", "", ""] },
+      { time: "19h30", days: ["", "", "", "", ""] },
+      { time: "20h00", days: ["", "", "", "", ""] },
+    ],
+  };
+
+  const calendarCapela = {
+    headers: ["Horários", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
+    rows: [
+      { time: "7h00", days: ["", "", "<strong>Felipe</strong> <br/> Desenvolvedor", "", ""] },
+      { time: "8h00", days: ["", "", "", "", ""] },
+      { time: "19h00", days: ["", "", "", "", ""] },
+      { time: "19h30", days: ["", "", "", "", ""] },
+      { time: "20h00", days: ["", "", "", "", ""] },
+    ],
+  };
+
+
   useEffect(() => {
     const modal = document.getElementById("myModal");
     const btn = document.getElementById("openModalBtn");
@@ -128,6 +151,43 @@ function App() {
     }
   };
 
+  //Tratamento para tirar elemento da renderização do github pages
+  useEffect(() => {
+    const unwantedElement = document.getElementById('loom-companion-mv3');
+    if (unwantedElement) {
+      unwantedElement.remove();
+    }
+  }, []);
+
+  const ScheduleTable = ({ data }) => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            {data.headers.map((header, index) => (
+              <th key={index}>{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.rows.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              <td>{row.time}</td>
+              {row.days.map((cell, cellIndex) => (
+                <td
+                  key={cellIndex}
+                  dangerouslySetInnerHTML={{ __html: cell }}
+                />
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
+
+
+
   const openModalPoliticaSeguranca = () => setModalPoliticaSeguranca(true);
   const closeModalPoliticaSeguranca = () => setModalPoliticaSeguranca(false);
   const openModalTermosServico = () => setModalTermosServico(true);
@@ -146,6 +206,7 @@ function App() {
           <li><a href="#aulas-e-treinos">Aulas e Treinos</a></li>
           <li><a href="#aplicativo">Aplicativo</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="#trabalhe-conosco">Trabalhe Conosco</a></li>
           <li><button onClick={() => setModalOpen(true)}>Contato</button></li>
         </ul>
       </nav>
@@ -261,7 +322,7 @@ function App() {
               <img src="img/Aula1.png" alt="Jump" className="card-image" />
               <div className="card-content">
                 <h3>Jump</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos laboriosam nesciunt voluptates ea architecto obcaecati!</p>
+                <p>Aula divertida que combina exercícios aeróbicos com um mini trampolim, proporcionando um treino de baixo impacto que melhora a resistência cardiovascular e tonifica os músculos.</p>
               </div>
             </div>
 
@@ -270,7 +331,7 @@ function App() {
               <img src="img/Aula2.png" alt="Localizada" className="card-image" />
               <div className="card-content">
                 <h3>Localizada</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, exercitationem vitae aut cum asperiores harum natus aliquam minima?</p>
+                <p>Aula focada no fortalecimento muscular, trabalhando regiões específicas do corpo através de exercícios com pesos e resistência, ideal para quem busca definir e tonificar a silhueta.</p>
               </div>
             </div>
 
@@ -279,7 +340,7 @@ function App() {
               <img src="img/Aula3.png" alt="Funcional" className="card-image" />
               <div className="card-content">
                 <h3>Funcional</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit molestiae nam quisquam illum?</p>
+                <p>Treino que utiliza movimentos do dia a dia para desenvolver força, equilíbrio e flexibilidade. Ideal para melhorar a performance nas atividades cotidianas e prevenir lesões.</p>
               </div>
             </div>
 
@@ -288,7 +349,7 @@ function App() {
               <img src="img/Aula4.png" alt="Alongamento" className="card-image" />
               <div className="card-content">
                 <h3>Alongamento</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis saepe repellendus debitis unde veniam illo possimus voluptatibus reiciendis.</p>
+                <p>Sessão dedicada a melhorar a flexibilidade e relaxar a musculatura. O alongamento é essencial para a recuperação muscular e pode ajudar a aliviar tensões e reduzir o risco de lesões.</p>
               </div>
             </div>
 
@@ -297,7 +358,7 @@ function App() {
               <img src="img/Aula5.png" alt="Abdominal" className="card-image" />
               <div className="card-content">
                 <h3>Abdominal</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi facilis a eveniet autem repellendus. Minima.</p>
+                <p>Aula focada no fortalecimento da musculatura do abdômen, utilizando diferentes exercícios para trabalhar tanto a parte superior quanto inferior do abdômen, contribuindo para uma melhor postura e estabilidade do core.</p>
               </div>
             </div>
 
@@ -306,7 +367,7 @@ function App() {
               <img src="img/Aula6.png" alt="Ritmos" className="card-image" />
               <div className="card-content">
                 <h3>Ritmos</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In, voluptate.</p>
+                <p>Aula de dança que combina diferentes estilos musicais, proporcionando um treino divertido e dinâmico. Além de queimar calorias, melhora a coordenação e a resistência cardiovascular.</p>
               </div>
             </div>
 
@@ -315,7 +376,7 @@ function App() {
               <img src="img/Aula7.png" alt="Step" className="card-image" />
               <div className="card-content">
                 <h3>Step</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam tenetur repellendus esse impedit ad ipsam culpa dolor itaque enim expedita.</p>
+                <p>Aula que utiliza uma plataforma elevada para realizar uma variedade de movimentos, promovendo um excelente treino cardiovascular e fortalecimento das pernas. Ideal para quem gosta de ritmo e energia.</p>
               </div>
             </div>
 
@@ -324,7 +385,7 @@ function App() {
               <img src="img/Aula8.png" alt="Cross Power" className="card-image" />
               <div className="card-content">
                 <h3>Cross Power</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, nobis enim!</p>
+                <p>Treino intenso que combina exercícios de força e resistência, utilizando pesos, kettlebells e movimentos funcionais. Ideal para quem busca desafiar o corpo e aumentar a capacidade física de forma rápida e eficiente.</p>
               </div>
             </div>
 
@@ -333,11 +394,21 @@ function App() {
               <img src="img/Aula9.png" alt="Melhor Idade" className="card-image" />
               <div className="card-content">
                 <h3>Melhor Idade</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, voluptas.</p>
+                <p>Aula adaptada para pessoas na melhor idade, focando em exercícios que melhoram a força, equilíbrio e flexibilidade, garantindo um envelhecimento ativo e saudável.</p>
               </div>
             </div>
           </Slider>
 
+          <div className="calendarios">
+            <div class="calendario">
+              <h2>Araçoiaba da Serra</h2>
+              <ScheduleTable data={calendarAracoiaba} />
+            </div>
+            <div class="calendario">
+              <h2>Capela do Alto</h2>
+              <ScheduleTable data={calendarCapela} />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -392,6 +463,44 @@ function App() {
               <hr className="faq-divider" /> {/* Linha divisória */}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Trabalhe Conosco */}
+      <section id="trabalhe-conosco" className="trabalhe-conosco">
+        <div className="container">
+          <div className="conteudo">
+            <div className="beneficios">
+              <h2 className="titulo">Trabalhe Conosco</h2>
+              <p className="descricao">
+                Junte-se à nossa equipe e faça parte de um ambiente colaborativo onde você pode crescer e desenvolver suas habilidades.
+              </p>
+
+              <div className="beneficio">
+                <h3>Ambiente Inovador</h3>
+                <p>Trabalhe com as últimas tecnologias e participe de projetos desafiadores.</p>
+              </div>
+              <div className="beneficio">
+                <h3>Crescimento de Carreira</h3>
+                <p>Planos de carreira estruturados e oportunidades para você se desenvolver dentro da empresa.</p>
+              </div>
+              <div className="beneficio">
+                <h3>Cultura Inclusiva</h3>
+                <p>Um ambiente de trabalho diverso e acolhedor, onde todos são valorizados.</p>
+              </div>
+
+              <div>
+                <a href="mailto:contato@corpusacademias.com.br?subject=Candidatura&body=Olá, gostaria de enviar meu currículo para a vaga." className="botao-candidatura">
+                  Envie seu Currículo
+                </a>
+              </div>
+
+            </div>
+
+            <div className="imagem">
+              <img src="img/trabalhe-conosco.png" alt="Equipe de trabalho" />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -610,7 +610,10 @@ footer {
   background-color: var(--text-color);
   width: 100%;
   padding: 2rem 0 .5rem 0;
+  position: relative; /* Certifique-se de que o footer tenha uma posição relativa */
+  z-index: 10; /* Z-index maior para ficar acima da imagem */
 }
+
 
 .footer {
   color: white;
@@ -622,6 +625,10 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+
+
+
 
 .footer-columns {
   display: flex;
@@ -806,4 +813,162 @@ footer {
 
 .schedule-modal-btn:hover {
   background-color: var(--whatsapp-hover);
+}
+
+#loom-companion-mv3 {
+  display: none;
+}
+
+.calendarios {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  justify-self: center;
+  align-items: center;
+  margin-top: 4rem;
+  gap: 3rem;
+}
+
+.calendario h2 {
+  color: var(--text-color);
+  font-size: 2rem;
+  border: 2px var(--text-color) solid;
+  border-radius: 999px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+
+/* Estilos da tabela */
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 0.7rem;
+  text-align: center;
+  background-color: #e0e0e0;
+  border-radius: 999px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  width: 150px;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+td:hover {
+  background-color: #c8e6c9;
+}
+
+table tbody td:first-child {
+  background-color: #f8ad77;
+  color: white;
+  font-weight: bold;
+}
+
+
+/* TrabalheConosco.css */
+
+.trabalhe-conosco {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.trabalhe-conosco .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.conteudo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.beneficios {
+  flex: 1;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.descricao {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.beneficio {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+
+
+.beneficio h3 {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.beneficio p {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+
+
+.beneficios a {
+  display: inline-block; 
+  margin-top: 0.7rem; 
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--primary-button);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  z-index: 100; /* Garante que fique acima de outros elementos */
+}
+
+
+.beneficios a:hover {
+  background-color: var(--hover-button);
+}
+
+.imagem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: 3rem;
+  position: relative; /* Mantenha a imagem em fluxo */
+  top: 50px;
+}
+
+.imagem img {
+  height: 750px;
+  z-index: 0;
 }
