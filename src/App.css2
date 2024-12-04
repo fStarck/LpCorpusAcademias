@@ -76,7 +76,6 @@ body {
   line-height: 1.6;
   padding: 0;
   background-color: var(--background1-color);
-
 }
 
 .App {
@@ -120,7 +119,6 @@ button:hover {
   background-color: var(--hover-button);
 }
 
-/* Menu Superior */
 .menu {
   position: absolute;
   top: 20px;
@@ -157,14 +155,12 @@ button:hover {
   font-weight: bold;
   transition: color 0.3s;
   background-color: var(--primary-button);
-
 }
 
 .menu button:hover {
   background-color: var(--hover-button);
 }
 
-/* Hero Section - Carrossel de Imagens */
 .carousel-image {
   width: 100%;
   height: auto;
@@ -178,7 +174,6 @@ button:hover {
   margin: 0 auto;
 }
 
-/* Banner Aula Grátis */
 #banner-aula-gratis {
   background-color: var(--background1-color);
   color: white;
@@ -214,7 +209,6 @@ button:hover {
   border-radius: 1.3rem;
 }
 
-/* Estilos para o modal */
 .modal {
   display: none;
   position: fixed;
@@ -369,7 +363,6 @@ button:hover {
   display: flex;
 }
 
-/* Aulas e Treinos */
 #aulas-e-treinos {
   padding: 40px 20px;
   background-color: var(--background1-color);
@@ -401,7 +394,6 @@ button:hover {
   right: 10px;
 }
 
-/* Aplicativo */
 #aplicativo {
   background-color: var(--background2-color);
   padding: 40px 20px;
@@ -496,7 +488,6 @@ button:hover {
   background-color: var(--hover-button);
 }
 
-/* FAQ */
 #faq {
   background-color: var(--background-color);
   padding: 40px 20px;
@@ -546,7 +537,6 @@ button:hover {
   transform: rotate(180deg);
 }
 
-/* Estilos para a linha divisória */
 .faq-divider {
   border: none;
   height: 1px;
@@ -554,7 +544,6 @@ button:hover {
   margin: 10px 0;
 }
 
-/*MODAL*/
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -611,11 +600,8 @@ footer {
   width: 100%;
   padding: 2rem 0 .5rem 0;
   position: relative;
-  /* Certifique-se de que o footer tenha uma posição relativa */
   z-index: 10;
-  /* Z-index maior para ficar acima da imagem */
 }
-
 
 .footer {
   color: white;
@@ -627,10 +613,6 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
 }
-
-
-
-
 
 .footer-columns {
   display: flex;
@@ -664,7 +646,6 @@ footer {
 
 .footer-menu {
   width: 15vw;
-
 }
 
 .footer-menu ul {
@@ -688,7 +669,6 @@ footer {
 .footer-menu a:hover {
   color: var(--primary-color);
   font-size: 1.4rem;
-
 }
 
 .footer-socials {
@@ -840,8 +820,6 @@ footer {
   transition: background-color 0.3s;
 }
 
-
-/* Estilos da tabela */
 table {
   border-collapse: separate;
   border-spacing: 10px;
@@ -875,17 +853,12 @@ table tbody td:first-child {
   font-weight: bold;
 }
 
-
-/* TrabalheConosco.css */
-
 .trabalhe-conosco {
   padding: 40px 20px;
   background-color: #f5f5f5;
   position: relative;
   z-index: 1;
 }
-
-
 
 .trabalhe-conosco .container {
   max-width: 1200px;
@@ -923,8 +896,6 @@ table tbody td:first-child {
   margin-bottom: 15px;
 }
 
-
-
 .beneficio h3 {
   font-size: 1.25rem;
   color: #333;
@@ -935,10 +906,6 @@ table tbody td:first-child {
   font-size: 1rem;
   color: #666;
 }
-
-
-
-
 
 .beneficios a {
   display: inline-block;
@@ -954,105 +921,43 @@ table tbody td:first-child {
   font-size: 1rem;
   transition: background-color 0.3s ease;
   z-index: 100;
-  /* Garante que fique acima de outros elementos */
 }
-
 
 .beneficios a:hover {
   background-color: var(--hover-button);
 }
 
-.imagem-trabalhe-conosco {
+.imagem {
   flex: 1;
   display: flex;
   justify-content: center;
   margin-left: 3rem;
   position: relative;
-  /* Mantenha a imagem em fluxo */
   top: 50px;
 }
 
-.imagem-trabalhe-conosco img {
+.imagem img {
   height: 750px;
   z-index: 0;
 }
 
-.rule {
-  width: 300px;
-  height: 100px;
-  background-color: blue;
+
+@media (max-width: 599px) {
+
 }
 
-.app-image-mobile {
-  display: none;
+@media (min-width: 600px) {
+
 }
 
-/*##############################################################################################*/
-@media (max-width: 480px) {
-  /* Estilos para iPhones menores */
-
-  body {
-    width: 100%;
-  }
-
-  .menu {
-    display: none;
-  }
-
-  .app-details,
-  .app-subtitle,
-  .app-call-to-action {
-    text-align: center;
-  }
-
-  .app-image {
-    display: none;
-  }
+@media (min-width: 900px) {
   
-  .aulas {
-    height: 1200px;
-  }
+}
 
-  .calendarios {
-    transform: scale(0.4);
-    transform-origin: top center; 
-  }
-
-  .app-image-mobile {
-    display: flex;
-    height: 15rem;
-    justify-self: center;
-    margin-top: -0.7rem;
-    margin-bottom: .7rem;
-  }
-
-  .faq-question {
-    font-size: 1.2rem;
-  }
-
-  .imagem-trabalhe-conosco {
-    display: none;
-  }
-
-  .footer-columns, .footer-location, .legal-footer {
-    flex-direction: column;
-  }
-
-  .footer-menu {
-    width: max-content;
-    margin-top: 2rem;
-    margin-bottom: -1rem;
-   justify-content: center;
-  }
-
-  .location {
-    margin: 1rem 0;
-  }
-
-  .legal-footer {
-    margin-bottom: 2rem;
-  }
+@media (min-width: 1200px) {
 
 }
 
-/*##############################################################################################*/
+@media (min-width: 1800px) {
+
+}

@@ -8,6 +8,7 @@ import { GiWeightLiftingUp } from "react-icons/gi";
 import { FaAngleDown } from "react-icons/fa6";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
+import ScreenWidthBox from "./ScreenWidthBox";
 
 function App() {
   // Configuração para o slider do hero
@@ -48,7 +49,6 @@ function App() {
   const [isModalConfiguracaoCookies, setModalConfiguracaoCookies] = useState(false);
   const [isModalAgendeAulaOpen, setModalAgendeAulaOpen] = useState(false);
 
-
   // Função para alternar o estado de exibição da resposta
   const toggleFAQ = (index) => {
     if (index === activeIndex) {
@@ -75,22 +75,20 @@ function App() {
   const calendarAracoiaba = {
     headers: ["Horários", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
     rows: [
-      { time: "7h00", days: ["", "", "", "", ""] },
-      { time: "8h00", days: ["", "", "", "", ""] },
-      { time: "19h00", days: ["", "", "", "", ""] },
-      { time: "19h30", days: ["", "", "", "", ""] },
-      { time: "20h00", days: ["", "", "", "", ""] },
+      { time: "7h00", days: ["", "", "<strong>Jump</strong><br/>Danilo", "", "<strong>Jump</strong><br/>Danilo"] },
+      { time: "8h00", days: ["<strong>Zumba</strong><br/>Lú Bianchi", "<strong>Pilates Solo</strong><br/>Sari", "<strong>Melhor Idade</strong><br/>Danilo", "<strong>Funcional</strong><br/>Danilo", "<strong>Melhor Idade</strong><br/>Danilo"] },
+      { time: "9h00", days: ["", "", "", "<strong>Pilates Solo</strong><br/>Sari", ""] },
+      { time: "18h00", days: ["<strong>Zumba</strong><br/>Lú Bianchi", "<strong>Jump</strong><br/>Lú Bianchi", "<strong>Step</strong><br/>Tainara", "", ""] },
+      { time: "19h00", days: ["<strong>Ritmos</strong><br/>Preto", "", "<strong>Ritmos</strong><br/>Preto", "<strong>Jump</strong><br/>Danilo", "<strong>Zumba</strong><br/>Lú Bianchi"] },
     ],
   };
 
   const calendarCapela = {
     headers: ["Horários", "Segunda", "Terça", "Quarta", "Quinta", "Sexta"],
     rows: [
-      { time: "7h00", days: ["", "", "<strong>Felipe</strong> <br/> Desenvolvedor", "", ""] },
-      { time: "8h00", days: ["", "", "", "", ""] },
-      { time: "19h00", days: ["", "", "", "", ""] },
-      { time: "19h30", days: ["", "", "", "", ""] },
-      { time: "20h00", days: ["", "", "", "", ""] },
+      { time: "7h00", days: ["<strong>Jump</strong><br/>Danilo", "<strong>Funcional</strong><br/>Duda", "<strong>Abdominal</strong><br/>Duda", "<strong>Jump</strong><br/>Lú Bianchi", ""] },
+      { time: "8h00", days: ["<strong>Alongamento</strong><br/>Danilo", "", "", "", "<strong>Alongamento</strong><br/>Duda"] },
+      { time: "19h00", days: ["<strong>Jump</strong><br/>Danilo", "<strong>Localizada</strong><br/>Danilo", "<strong>Abdominal</strong><br/>Íthalo", "", ""] },
     ],
   };
 
@@ -199,7 +197,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Menu Superior */}
       <nav className="menu">
         <ul>
           <li><a href="#nossas-unidades">Nossas Unidades</a></li>
@@ -240,7 +237,8 @@ function App() {
       <section id="banner-aula-gratis">
         <div className="container">
           <img
-            src="img/faixa-agende-sua-aula.png"
+            id="agende-sua-aula"
+            src="img/agende-sua-aula.png"
             alt="Faixa com a imagem 'Agende sua aula grátis'"
           />
           <button onClick={openModalAgendeAulaOpen}>Agende Agora</button>
@@ -420,6 +418,8 @@ function App() {
           <div className="app-content">
             <div className="app-text">
               <h3 className="app-subtitle">Corpus App:<br /> Treinos e Resultados na Palma da Mão!</h3>
+              <img src="img/app.png" alt="Imagem do APP" className="app-image-mobile" />
+
               <p className="app-details">
                 Com o Corpus App, você tem todo o suporte que precisa para alcançar suas metas de forma prática e eficiente:
               </p>
@@ -436,6 +436,7 @@ function App() {
             </div>
             <img src="img/app.png" alt="Imagem do APP" className="app-image" />
           </div>
+
           <button className="app-button" onClick={handleDownloadClick}>Baixar Aplicativo</button>
         </div>
       </section>
@@ -497,7 +498,7 @@ function App() {
 
             </div>
 
-            <div className="imagem">
+            <div className="imagem-trabalhe-conosco">
               <img src="img/trabalhe-conosco.png" alt="Equipe de trabalho" />
             </div>
           </div>
@@ -517,6 +518,7 @@ function App() {
                 <li><a href="#aulas-e-treinos">Aulas e Treinos</a></li>
                 <li><a href="#aplicativo">Aplicativo</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#trabalhe-conosco">Trabalhe Conosco</a></li>
               </ul>
             </div>
 
